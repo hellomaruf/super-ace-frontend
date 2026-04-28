@@ -20,13 +20,13 @@ const GUEST_USER = {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(GUEST_USER);
   const [loading, setLoading] = useState(false);
-  const [token, setToken] = useState('guest-token');
+  const [token] = useState('guest-token');
 
   useEffect(() => {
     // Set default authorization for guest
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     setLoading(false);
-  }, []);
+  }, [token]);
 
   const updateBalance = (newBalance) => {
     setUser({ ...user, balance: newBalance });
