@@ -1,0 +1,378 @@
+.card-symbol {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 1000px;
+}
+
+.card-symbol.winning {
+  z-index: 100;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #2a2a3a 0%, #1a1a2a 50%, #0a0a15 100%);
+  border-radius: 8px;
+}
+
+/* Golden Card Styles */
+.golden-card .card-bg {
+  background: linear-gradient(135deg, #4a3a1a 0%, #2a1a0a 50%, #1a0a05 100%);
+  border: 2px solid #ffd700;
+}
+
+.golden-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+}
+
+.glow-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+  animation: goldenPulse 2s ease infinite;
+}
+
+@keyframes goldenPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+/* Joker Card Styles */
+.joker-card .card-bg {
+  background: linear-gradient(135deg, #3a1a3a 0%, #2a0a2a 50%, #1a051a 100%);
+  border: 2px solid #ff00ff;
+}
+
+.joker-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+}
+
+.glow-rainbow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(
+    from 0deg,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #9400d3,
+    #ff0000
+  );
+  opacity: 0.3;
+  animation: rainbowRotate 3s linear infinite;
+  filter: blur(10px);
+}
+
+@keyframes rainbowRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Scatter Card Styles */
+.scatter-card .card-bg {
+  background: linear-gradient(135deg, #3a3a1a 0%, #2a2a0a 50%, #1a1a05 100%);
+  border: 2px solid #ffff00;
+  animation: scatterGlow 1.5s ease infinite;
+}
+
+@keyframes scatterGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); }
+  50% { box-shadow: 0 0 30px rgba(255, 255, 0, 0.8); }
+}
+
+/* Card Content */
+.card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  z-index: 2;
+}
+
+/* Corner Ranks */
+.card-corner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.card-corner.top-left {
+  align-self: flex-start;
+}
+
+.card-corner.bottom-right {
+  align-self: flex-end;
+  transform: rotate(180deg);
+}
+
+.corner-rank {
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Suit Icons */
+.suit-icon {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.suit-icon.spade,
+.suit-icon.spade-small {
+  color: #aaa;
+}
+
+.suit-icon.heart,
+.suit-icon.heart-small {
+  color: #e94560;
+}
+
+.suit-icon.diamond {
+  color: #4ecdc4;
+}
+
+.suit-icon.club {
+  color: #96ceb4;
+}
+
+/* Card Center */
+.card-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Regular Center */
+.regular-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.regular-rank {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.regular-suit .suit-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Golden Center */
+.golden-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.golden-frame {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.golden-rank {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.golden-suit .suit-icon {
+  width: 25px;
+  height: 25px;
+}
+
+/* Joker Center */
+.joker-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.joker-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff00ff 0%, #ff88ff 50%, #ff00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+.joker-stars {
+  font-size: 0.6rem;
+  color: #ff00ff;
+  letter-spacing: 3px;
+}
+
+/* Scatter Center */
+.scatter-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.scatter-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ffff00;
+  letter-spacing: 1px;
+}
+
+.scatter-star {
+  font-size: 2rem;
+  color: #ffff00;
+  text-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+  animation: starPulse 1s ease infinite;
+}
+
+@keyframes starPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.scatter-label {
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+}
+
+/* Card Shine */
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: cardShine 4s ease infinite;
+  pointer-events: none;
+}
+
+@keyframes cardShine {
+  0%, 90%, 100% { left: -100%; }
+  45% { left: 150%; }
+}
+
+/* Winning Glow */
+.winning-glow {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 3px solid #ffd700;
+  border-radius: 10px;
+  box-shadow: 
+    0 0 30px #ffd700,
+    inset 0 0 30px rgba(255, 215, 0, 0.3);
+  animation: winningCardGlow 0.5s ease infinite;
+  pointer-events: none;
+}
+
+@keyframes winningCardGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-content {
+    padding: 4px;
+  }
+  
+  .regular-rank {
+    font-size: 1.2rem;
+  }
+  
+  .regular-suit .suit-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .golden-rank {
+    font-size: 1rem;
+  }
+  
+  .golden-suit .suit-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .joker-text {
+    font-size: 0.6rem;
+  }
+  
+  .scatter-text {
+    font-size: 0.5rem;
+  }
+  
+  .scatter-star {
+    font-size: 1.2rem;
+  }
+}

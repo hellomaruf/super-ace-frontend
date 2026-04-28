@@ -1,0 +1,146 @@
+.free-spins-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.free-spins-display {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 25px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.free-spins-display.has-spins {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+.free-spins-icon {
+  font-size: 1.5rem;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+.free-spins-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.free-spins-label {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 1px;
+}
+
+.free-spins-count {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Free Spins Awarded */
+.free-spins-awarded {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 30px 50px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 165, 0, 0.9));
+  border-radius: 20px;
+  box-shadow: 
+    0 0 60px rgba(255, 215, 0, 0.6),
+    0 0 100px rgba(255, 215, 0, 0.3);
+}
+
+.awarded-glow {
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.awarded-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.awarded-text {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.awarded-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sparkle-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+}
+
+.ring-sparkle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: 0 100px;
+  font-size: 1.2rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .free-spins-display {
+    padding: 10px 20px;
+  }
+  
+  .free-spins-icon {
+    font-size: 1.2rem;
+  }
+  
+  .free-spins-count {
+    font-size: 1.2rem;
+  }
+  
+  .free-spins-awarded {
+    padding: 20px 35px;
+  }
+  
+  .awarded-text {
+    font-size: 2rem;
+  }
+  
+  .awarded-label {
+    font-size: 0.7rem;
+  }
+}

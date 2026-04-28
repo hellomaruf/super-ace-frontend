@@ -1,0 +1,80 @@
+.multiplier-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.multiplier-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 2px;
+}
+
+.multiplier-container {
+  display: flex;
+  gap: 8px;
+}
+
+.multiplier-step {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.multiplier-step .step-number {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+  transition: color 0.3s ease;
+}
+
+.multiplier-step.completed {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.multiplier-step.completed .step-number {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.multiplier-step.active {
+  transform: scale(1.1);
+  border-width: 3px;
+}
+
+.multiplier-step.active .step-number {
+  color: #fff;
+  font-size: 1rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .multiplier-display {
+    padding: 10px 20px;
+  }
+  
+  .multiplier-step {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .multiplier-step .step-number {
+    font-size: 0.7rem;
+  }
+  
+  .multiplier-step.active .step-number {
+    font-size: 0.8rem;
+  }
+}
